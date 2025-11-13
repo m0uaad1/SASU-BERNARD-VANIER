@@ -1,229 +1,843 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HUNANIMA — Machines Agricoles Simples</title>
-  <meta name="description" content="HUNANIMA — machines agricoles simples et fiables. Récolte, fourrage et outils pour petites parcelles avec support clair et prix équitable."/>
+  <meta charset="UTF-8" />
+  <title>SASU BERNARD VANIER - Production & Réalisation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="SASU BERNARD VANIER - Production, réalisation et accompagnement audiovisuel à Villers-aux-Noeuds, Grand Est, France."
+  />
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
-    :root{
-      --primary:#1B7F3A;   /* Vert */
-      --accent:#FFD300;    /* Jaune */
-      --nav:#0E4D25;       /* Vert foncé */
-      --ink:#0b0b0b;
-      --muted:#58636f;
-      --card:#ffffff;
-      --bg:#ffffff;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{max-width:1100px;margin:0 auto;padding:24px}
 
-    /* Header */
-    header{background:var(--nav); color:#fff; position:sticky; top:0; z-index:10; box-shadow:0 6px 18px rgba(0,0,0,.08)}
-    .topbar{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 24px}
-    .brand{font-weight:900; letter-spacing:.35px}
-    nav a{display:inline-block; padding:10px 14px; border-radius:12px; color:#eaffea; font-weight:700}
-    nav a:hover{background:rgba(255,255,255,.12)}
-    .cta-btn{background:var(--accent); color:#1a1500; padding:10px 14px; border-radius:12px; font-weight:800}
-
-    /* Hero (animated card) */
-    .hero-wrap{background:linear-gradient(180deg,#ffffff,#f2fff6); padding:42px 24px}
-    .hero-card{
-      background:var(--card); border:1px solid rgba(0,0,0,.06); border-radius:22px;
-      box-shadow:0 30px 60px rgba(0,0,0,.12); padding:28px;
-      display:grid; grid-template-columns:1.15fr .85fr; gap:22px; overflow:hidden;
-      transform:translateY(24px); opacity:0; animation:cardIn .9s ease-out .15s forwards;
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #050710;
+      color: #f9fafb;
+      line-height: 1.6;
     }
-    @keyframes cardIn{to{transform:translateY(0);opacity:1}}
-    .hero-badge{display:inline-flex; align-items:center; gap:10px; background:#0e3a1d; color:var(--accent); padding:6px 12px; border-radius:999px; font-size:.9rem; font-weight:800}
-    .hero-title{font-size:clamp(26px,4vw,42px); line-height:1.15; margin:14px 0 10px; font-weight:900}
-    .hero-title .grad{background:linear-gradient(90deg,var(--primary),#2fc368); -webkit-background-clip:text; color:transparent}
-    .hero-sub{font-size:1.02rem; color:#2f3540}
-    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
-    .btn{border:2px solid #0e3a1d; color:#fff; background:#0e3a1d; padding:12px 18px; border-radius:14px; font-weight:800}
-    .btn:hover{transform:translateY(-1px); box-shadow:0 8px 16px rgba(0,0,0,.15)}
-    .btn.secondary{background:var(--accent); color:#1a1500; border-color:var(--accent)}
-    .hero-media{border-radius:18px; overflow:hidden; aspect-ratio:4/3; background:#f6fff8;
-      display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:8px}
-    .hero-media img{object-fit:cover; width:100%; height:100%}
 
-    /* Sections */
-    section{padding:56px 24px}
-    section h2{font-size:clamp(22px,3vw,32px); margin:0 0 14px; font-weight:900}
-    .muted{color:var(--muted)}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-    /* Cards */
-    .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px}
-    .card{border:1px solid rgba(0,0,0,.06); border-radius:16px; padding:16px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.06);
-      transform:translateY(14px); opacity:0}
-    .card.reveal{animation:reveal .7s ease-out forwards}
-    @keyframes reveal{to{transform:translateY(0); opacity:1}}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-    /* Gallery */
-    .gallery{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
-    .gallery img{border-radius:14px; aspect-ratio:4/3; object-fit:cover}
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(5, 7, 16, 0.94);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }
 
-    /* Formula */
-    .formula{border-left:6px solid var(--accent); background:#fff9ce; padding:16px 18px; border-radius:12px}
-    .formula ol{margin:0; padding-left:18px}
-    .formula li{margin:8px 0}
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #f97316;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      padding-bottom: 0.15rem;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s ease, color 0.2s ease;
+      color: #e5e7eb;
+    }
+
+    .nav-links a:hover {
+      border-color: #f97316;
+      color: #fff7ed;
+    }
+
+    /* Hero Section */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.2rem 1.5rem 3.2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.4rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 2.6rem;
+      color: #f9fafb;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-text h1 span {
+      color: #f97316;
+    }
+
+    .hero-text p {
+      margin-bottom: 1.6rem;
+      color: #cbd5f5;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      background: rgba(249, 115, 22, 0.15);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      margin-bottom: 0.9rem;
+      color: #fed7aa;
+      border: 1px solid rgba(248, 250, 252, 0.18);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.7rem 1.5rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+        background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at top, #f97316, #c2410c 45%, #7c2d12 100%);
+      color: #fff;
+      box-shadow: 0 12px 35px rgba(248, 113, 22, 0.5);
+      border: 1px solid rgba(248, 250, 252, 0.1);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 45px rgba(248, 113, 22, 0.7);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: #e5e7eb;
+    }
+
+    .btn-outline:hover {
+      background: rgba(15, 23, 42, 0.8);
+      border-color: #f97316;
+      color: #fff7ed;
+    }
+
+    .hero-meta {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-top: 0.9rem;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+    }
+
+    .hero-main-img {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .hero-float {
+      position: absolute;
+      right: -12px;
+      bottom: -20px;
+      width: 46%;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.9);
+      border: 2px solid #050710;
+      background: #020617;
+    }
+
+    /* Section base */
+    section {
+      padding: 2.7rem 1.5rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-title h2 {
+      font-size: 1.9rem;
+      margin-bottom: 0.3rem;
+      color: #f9fafb;
+    }
+
+    .section-title p {
+      color: #9ca3af;
+      font-size: 0.95rem;
+    }
+
+    /* Services */
+    .services-grid, .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.7rem;
+    }
+
+    .service-card, .project-card {
+      background: radial-gradient(circle at top, #0f172a 0, #020617 60%, #020617 100%);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 1.3rem 1.4rem 1.5rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .service-card:hover, .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 55px rgba(15, 23, 42, 1);
+      border-color: rgba(249, 115, 22, 0.7);
+    }
+
+    .service-title {
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #f9fafb;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      margin-bottom: 0.6rem;
+    }
+
+    .service-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(249, 115, 22, 0.08);
+      color: #fed7aa;
+      border: 1px solid rgba(249, 115, 22, 0.4);
+    }
+
+    /* Projects / visuels */
+    .project-img {
+      height: 180px;
+      overflow: hidden;
+      border-radius: 14px;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.97;
+      transition: transform 0.6s ease, opacity 0.3s ease;
+    }
+
+    .project-card:hover .project-img img {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+
+    .project-title {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: #f9fafb;
+    }
+
+    .project-meta {
+      font-size: 0.85rem;
+      color: #cbd5f5;
+    }
+
+    /* Bande visuelle */
+    .band {
+      background-image: url('https://avatars.mds.yandex.net/get-altay/11937297/2a0000018e1891a3e1922e435ccee52c8260/XXL_height');
+      background-size: cover;
+      background-position: center;
+      padding: 3.2rem 1.5rem;
+      margin-top: 2.4rem;
+      border-radius: 22px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.95);
+    }
+
+    .band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        130deg,
+        rgba(15, 23, 42, 0.9),
+        rgba(30, 64, 175, 0.8),
+        rgba(248, 113, 22, 0.8)
+      );
+    }
+
+    .band-inner {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      color: #f9fafb;
+      text-align: center;
+    }
+
+    .band-inner h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .band-inner p {
+      font-size: 0.95rem;
+      max-width: 680px;
+      margin: 0.2rem auto 0;
+      color: #e5e7eb;
+    }
+
+    /* À propos */
+    .about {
+      background: radial-gradient(circle at top, #020617 0, #020617 55%, #020617 100%);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+      color: #f9fafb;
+    }
+
+    .about-text p {
+      color: #e5e7eb;
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .about-highlight {
+      padding: 1rem 1.2rem;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.95);
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .about-highlight strong {
+      color: #f97316;
+    }
+
+    .about-card {
+      background: radial-gradient(circle at top, #020617 0, #020617 55%, #020617 100%);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .about-card-img {
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .about-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.98;
+    }
+
+    .about-card-body {
+      padding: 1rem 1.2rem 1.2rem;
+    }
 
     /* Contact */
-    .contact-box{background:var(--primary); color:#fff; border-radius:18px; padding:20px; display:grid; gap:8px; border:1px solid rgba(0,0,0,.12)}
-    .contact-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
-    .contact-actions a{display:inline-block; background:var(--accent); color:#1a1500; padding:10px 14px; border-radius:12px; font-weight:800}
+    .contact {
+      background: #020617;
+    }
 
-    footer{background:#0e3a1d; color:var(--accent); padding:18px; text-align:center; font-weight:700}
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
 
-    @media (max-width:820px){
-      .hero-card{grid-template-columns:1fr; padding:20px}
-      .gallery{grid-template-columns:1fr}
+    .contact-card {
+      background: radial-gradient(circle at top, #0b1120 0, #020617 60%, #020617 100%);
+      border-radius: 18px;
+      box-shadow: 0 18px 48px rgba(15, 23, 42, 0.95);
+      padding: 1.5rem;
+      font-size: 0.95rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .contact-card h3 {
+      margin-bottom: 0.6rem;
+      font-size: 1.1rem;
+      color: #f9fafb;
+    }
+
+    .contact-card p {
+      margin-bottom: 0.4rem;
+      color: #e5e7eb;
+    }
+
+    .contact-label {
+      font-weight: 600;
+      color: #f97316;
+    }
+
+    .contact-form {
+      background: radial-gradient(circle at top, #020617 0, #020617 55%, #020617 100%);
+      border-radius: 18px;
+      padding: 1.5rem;
+      box-shadow: 0 18px 48px rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .contact-form form {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      margin-bottom: 0.2rem;
+      display: block;
+      color: #e5e7eb;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease,
+        background 0.2s ease;
+      background: rgba(15, 23, 42, 0.95);
+      color: #f9fafb;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #9ca3af;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #f97316;
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.35);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      background: #020617;
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 1rem 1.5rem 1.5rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding-top: 1.7rem;
+      }
+
+      .hero-text h1 {
+        font-size: 2.1rem;
+      }
+
+      .hero-float {
+        display: none;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      .band {
+        margin-top: 2.2rem;
+      }
     }
   </style>
 </head>
 <body>
-
-  <!-- Header -->
   <header>
-    <div class="topbar container">
-      <div class="brand">HUNANIMA</div>
-      <nav>
+    <nav class="nav">
+      <div class="logo">SASU BERNARD VANIER</div>
+      <div class="nav-links">
+        <a href="#accueil">Accueil</a>
+        <a href="#services">Services</a>
+        <a href="#projets">Projets</a>
         <a href="#about">À propos</a>
-        <a href="#products">Produits</a>
-        <a href="#gallery">Galerie</a>
-        <a href="#formula">Notre Formule</a>
-        <a href="#contact" class="cta-btn">Contact</a>
-      </nav>
-    </div>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
   </header>
 
-  <!-- HERO -->
-  <div class="hero-wrap">
-    <div class="container">
-      <div class="hero-card">
-        <div>
-          <span class="hero-badge">Machines Agricoles Simples</span>
-          <h1 class="hero-title">Travaillez malin. <span class="grad">Faites croître sûrement.</span></h1>
-          <p class="hero-sub">Équipements compacts, fiables et faciles à entretenir pour petites et moyennes exploitations — récolte, fourrage et manutention simplifiés.</p>
-          <div class="hero-actions">
-            <a class="btn" href="#products">Découvrir nos Produits</a>
-            <a class="btn secondary" href="#contact">Demander un Devis</a>
+  <!-- Hero -->
+  <main id="accueil">
+    <section class="hero">
+      <div class="hero-text">
+        <div class="badge">Production & réalisation audiovisuelle</div>
+        <h1>
+          Des histoires <span>pensées pour l’écran</span>
+        </h1>
+        <p>
+          SASU BERNARD VANIER accompagne vos projets d’images : films, contenus
+          de marque, clips, documentaires et captations. De l’idée à l’écran,
+          un interlocuteur unique pour structurer, tourner et finaliser vos films.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#services">
+            <button class="btn btn-primary">Découvrir les services</button>
+          </a>
+          <a href="#contact">
+            <button class="btn btn-outline">Parler de votre projet</button>
+          </a>
+        </div>
+
+        <p class="hero-meta">
+          RUE DE LONGJUMEAU 51500, Villers-aux-Noeuds • Grand Est, France
+        </p>
+      </div>
+
+      <div class="hero-image-wrap">
+        <div class="hero-main-img">
+          <img
+            src="https://filmfreeway-production-storage-01-connector.filmfreeway.com/festivals/cover_photos/000/060/513/original/cover_photo.jpg?1619722143"
+            alt="Plateau de tournage - SASU BERNARD VANIER"
+          />
+        </div>
+        <div class="hero-float">
+          <img
+            src="https://static.tildacdn.com/tild3537-3831-4232-a231-376564366664/rezhisser-0-min.jpeg"
+            alt="Réalisation sur plateau"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="section-inner">
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>Une chaîne complète, de la conception à la post-production.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <h3 class="service-title">Conception & écriture</h3>
+            <p class="service-desc">
+              Analyse de votre besoin, proposition de concepts, écriture de
+              scripts, découpage, moodboards et préparation artistique.
+            </p>
+            <span class="service-tag">Idée & scénario</span>
+          </article>
+
+          <article class="service-card">
+            <h3 class="service-title">Tournage & réalisation</h3>
+            <p class="service-desc">
+              Direction artistique, cadrage, lumière, son, coordination
+              des équipes et gestion du plateau pour un tournage maîtrisé.
+            </p>
+            <span class="service-tag">Plateau & réalisation</span>
+          </article>
+
+          <article class="service-card">
+            <h3 class="service-title">Post-production & livraison</h3>
+            <p class="service-desc">
+              Montage, habillage, étalonnage, mixage, exports multi-formats
+              (web, projection, réseaux sociaux, diffusion interne).
+            </p>
+            <span class="service-tag">Montage & finalisation</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projets / visuels -->
+    <section id="projets">
+      <div class="section-inner">
+        <div class="section-title">
+          <h2>Univers & inspirations</h2>
+          <p>Un regard cinéma appliqué à vos projets de communication et de création.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-img">
+              <img
+                src="https://filmfreeway-production-storage-01-connector.filmfreeway.com/festivals/cover_photos/000/060/513/original/cover_photo.jpg?1619722143"
+                alt="Plateau de tournage cinéma"
+              />
+            </div>
+            <h3 class="project-title">Fictions & courts-métrages</h3>
+            <p class="project-meta">
+              Narration, direction d’acteurs, lumière et rythme au service de
+              projets de fiction courts ou moyens formats.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-img">
+              <img
+                src="https://static.tildacdn.com/tild3537-3831-4232-a231-376564366664/rezhisser-0-min.jpeg"
+                alt="Réalisation de film"
+              />
+            </div>
+            <h3 class="project-title">Films de marque & institutionnels</h3>
+            <p class="project-meta">
+              Valoriser vos projets, vos équipes et vos clients via des films
+              écrits sur mesure, pensés pour vos canaux de diffusion.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-img">
+              <img
+                src="https://www.garageproductions.in/wp-content/uploads/2024/06/film-production-companies.png"
+                alt="Production audiovisuelle"
+              />
+            </div>
+            <h3 class="project-title">Captations & contenus récurrents</h3>
+            <p class="project-meta">
+              Captations d’événements, interviews, formats courts pour réseaux
+              sociaux, capsules vidéos régulières.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bande visuelle -->
+    <section class="band">
+      <div class="band-inner">
+        <h3>Transformer une intention en image forte</h3>
+        <p>
+          Chaque projet est abordé comme un film à part entière : intention claire,
+          mise en scène adaptée, rythme précis et qualité d’image pensée pour
+          vos diffusions (projection, web, réseaux, interne).
+        </p>
+      </div>
+    </section>
+
+    <!-- À propos -->
+    <section id="about" class="about">
+      <div class="section-inner">
+        <div class="section-title">
+          <h2>À propos</h2>
+          <p>Une structure agile basée à Villers-aux-Noeuds, au service de vos images.</p>
+        </div>
+
+        <div class="about-content">
+          <div class="about-text">
+            <h3>Un accompagnement sur-mesure</h3>
+            <p>
+              SASU BERNARD VANIER met à votre disposition une expérience de
+              terrain en production et réalisation, avec une approche souple :
+              projets légers ou tournages plus structurés, en fonction de vos
+              enjeux et de vos moyens.
+            </p>
+            <p>
+              L’objectif : mettre en cohérence votre message, votre identité
+              visuelle et les formats vidéo attendus par vos publics.
+            </p>
+
+            <div class="about-highlight">
+              <strong>Adresse :</strong><br />
+              RUE DE LONGJUMEAU 51500<br />
+              Villers-aux-Noeuds, Grand Est, France
+              <br /><br />
+              <strong>Entreprise :</strong> SASU BERNARD VANIER<br />
+              <strong>Domaine :</strong> Production & réalisation audiovisuelle
+            </div>
           </div>
-          <p class="muted" style="margin-top:10px;">
-            Avenue Baratier, 95160 Montmorency • +33 7 38 50 26 36 • admin@tyusex.shop
-          </p>
-        </div>
-        <div class="hero-media">
-          <img src="https://i.pinimg.com/550x/a9/df/51/a9df5172829f8c05f5b92f97553d41ae.jpg" alt="Champ & tracteur">
-          <img src="http://ogden_images.s3.amazonaws.com/www.motherearthnews.com/images/2014/11/22234423/Boaz-Mini-Combine-jpg.jpg" alt="Mini moissonneuse">
-          <img src="https://krs-agro.ru/products/zagotovka_kormov/elho/19/7.jpg" alt="Outil de fourrage">
-          <img src="https://img.mod-network.net/files/images/6218ac69d37fb/SimpleFarmSilov1000_6222.jpg" alt="Équipement de silo">
+
+          <div class="about-card">
+            <div class="about-card-img">
+              <img
+                src="https://static.tildacdn.com/tild3537-3831-4232-a231-376564366664/rezhisser-0-min.jpeg"
+                alt="Réalisation sur plateau"
+              />
+            </div>
+            <div class="about-card-body">
+              <h3 style="font-size: 1rem; margin-bottom: 0.3rem;">
+                Écoute, exigence & clarté
+              </h3>
+              <p style="font-size: 0.9rem; color: #e5e7eb;">
+                Briefs précis, repérages, préparation, puis suivi de chaque étape
+                du projet. Vous gardez une vision claire des choix artistiques
+                et techniques, du planning et des livrables.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- About -->
-  <section id="about" class="container">
-    <h2>À propos de nous</h2>
-    <p class="muted">
-      HUNANIMA conçoit des machines agricoles pratiques, avec des commandes simples et une maintenance facile.  
-      Notre objectif : des outils qui démarrent chaque matin et font gagner des heures aux champs.
-    </p>
-    <div class="cards" style="margin-top:12px">
-      <article class="card reveal" style="animation-delay:.00s"><strong>Fiabilité :</strong> Moins de capteurs, mécanique éprouvée, entretien simple.</article>
-      <article class="card reveal" style="animation-delay:.08s"><strong>Adaptabilité :</strong> Accessoires pour récolte, fourrage et manutention.</article>
-      <article class="card reveal" style="animation-delay:.16s"><strong>Support :</strong> Conseils pièces et entretien.</article>
-      <article class="card reveal" style="animation-delay:.24s"><strong>Valeur :</strong> Spécifications solides sans extras inutiles.</article>
-    </div>
-  </section>
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <div class="section-inner">
+        <div class="section-title">
+          <h2>Contact & projets</h2>
+          <p>Parlez de votre besoin, de votre calendrier et de vos objectifs.</p>
+        </div>
 
-  <!-- Products -->
-  <section id="products" class="container">
-    <h2>Produits</h2>
-    <div class="cards">
-      <article class="card reveal" style="animation-delay:.00s">
-        <h3>Mini Moissonneuse</h3>
-        <p>Récolte compacte pour petites parcelles ; transmission simple et faible consommation.</p>
-      </article>
-      <article class="card reveal" style="animation-delay:.08s">
-        <h3>Outils de Fourrage</h3>
-        <p>Accessoires de coupe et ramassage adaptés aux tracteurs de puissance moyenne.</p>
-      </article>
-      <article class="card reveal" style="animation-delay:.16s">
-        <h3>Silos & Manutention</h3>
-        <p>Chargeurs et vis de silo avec commandes simples.</p>
-      </article>
-      <article class="card reveal" style="animation-delay:.24s">
-        <h3>Kits de Service</h3>
-        <p>Filtres, courroies et fluides regroupés pour maximiser le temps de fonctionnement.</p>
-      </article>
-    </div>
-  </section>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Coordonnées</h3>
+            <p>
+              <span class="contact-label">Entreprise :</span>
+              SASU BERNARD VANIER
+            </p>
+            <p>
+              <span class="contact-label">Email :</span>
+              <a href="mailto:hello@florinae.shop">hello@florinae.shop</a>
+            </p>
+            <p>
+              <span class="contact-label">Téléphone :</span>
+              <a href="tel:+33787854656">+33 7 87 85 46 56</a>
+            </p>
+            <p>
+              <span class="contact-label">Adresse :</span><br />
+              RUE DE LONGJUMEAU 51500<br />
+              Villers-aux-Noeuds, Grand Est, France
+            </p>
+            <p style="margin-top: 0.7rem; font-size: 0.9rem;">
+              Indiquez le type de film (interview, film marque, fiction, captation…),
+              la durée souhaitée, le lieu de tournage et les échéances importantes.
+            </p>
+          </div>
 
-  <!-- Gallery -->
-  <section id="gallery" class="container">
-    <h2>Galerie</h2>
-    <div class="gallery">
-      <img src="https://i.pinimg.com/550x/a9/df/51/a9df5172829f8c05f5b92f97553d41ae.jpg" alt="Tracteur au champ">
-      <img src="http://ogden_images.s3.amazonaws.com/www.motherearthnews.com/images/2014/11/22234423/Boaz-Mini-Combine-jpg.jpg" alt="Mini moissonneuse gros plan">
-      <img src="https://krs-agro.ru/products/zagotovka_kormov/elho/19/7.jpg" alt="Équipement de fourrage">
-      <img src="https://img.mod-network.net/files/images/6218ac69d37fb/SimpleFarmSilov1000_6222.jpg" alt="Chargeur de silo">
-    </div>
-  </section>
+          <div class="contact-form">
+            <!-- Formulaire statique (à connecter côté serveur si besoin) -->
+            <form>
+              <div class="form-group">
+                <label for="name">Nom / Société</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Votre nom ou nom d'organisation"
+                  required
+                />
+              </div>
 
-  <!-- Notre Formule -->
-  <section id="formula" class="container">
-    <h2>Notre Formule (10 Points Clés)</h2>
-    <div class="formula">
-      <ol>
-        <li><strong>Design Simple :</strong> Commandes intuitives, pièces accessibles.</li>
-        <li><strong>Taille Adaptée :</strong> Puissance calibrée aux parcelles et tâches.</li>
-        <li><strong>Économie de Carburant :</strong> Moteurs et transmissions efficaces.</li>
-        <li><strong>Durabilité :</strong> Pièces d’usure renforcées ; pièces de rechange faciles.</li>
-        <li><strong>Sécurité :</strong> Protections, prise de force sécurisée, étiquettes claires.</li>
-        <li><strong>Maintenance :</strong> Kits de service et plannings inclus.</li>
-        <li><strong>Polyvalence :</strong> Un tracteur, plusieurs accessoires.</li>
-        <li><strong>Disponibilité :</strong> Devis rapides et délais réalistes.</li>
-        <li><strong>Formation :</strong> Initiation simple à la livraison.</li>
-        <li><strong>Suivi :</strong> Assistance téléphonique/email et conseils pièces.</li>
-      </ol>
-    </div>
-  </section>
+              <div class="form-group">
+                <label for="email">Adresse e-mail</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="vous@example.com"
+                  required
+                />
+              </div>
 
-  <!-- Contact -->
-  <section id="contact" class="container">
-    <h2>Contact</h2>
-    <div class="contact-box">
-      <div><strong>Entreprise :</strong> HUNANIMA</div>
-      <div><strong>Domaine :</strong> Machines Agricoles Simples</div>
-      <div><strong>Adresse :</strong> Avenue Baratier, 95160 Montmorency, France</div>
-      <div><strong>Téléphone :</strong> +33 7 38 50 26 36</div>
-      <div><strong>Email :</strong> admin@tyusex.shop</div>
-      <div class="contact-actions">
-        <a href="mailto:admin@tyusex.shop?subject=Demande%20-%20HUNANIMA%20Machines%20Agricoles" target="_blank" rel="noopener">Envoyer un Email</a>
-        <a href="tel:+33738502636">Appeler</a>
-        <a href="https://wa.me/33738502636" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=Avenue+Baratier+95160+Montmorency" target="_blank" rel="noopener">Ouvrir la Carte</a>
+              <div class="form-group">
+                <label for="message">Votre projet</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Type de projet, durée, objectifs, lieu de tournage, calendrier prévisionnel..."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                Envoyer la demande
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
-    © 2025 HUNANIMA — Tous droits réservés
+    <div class="footer-inner">
+      <span>© <span id="year"></span> SASU BERNARD VANIER. Tous droits réservés.</span>
+      <span>Production & réalisation audiovisuelle • Grand Est</span>
+    </div>
   </footer>
 
   <script>
-    // Apparition progressive des cartes
-    const observer = new IntersectionObserver(entries=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add('reveal'); observer.unobserve(e.target); }
-      })
-    }, {threshold:.15});
-    document.querySelectorAll('.card').forEach(el=>observer.observe(el));
+    // Met l'année actuelle automatiquement
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
